@@ -11,5 +11,64 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Floating contact button -->
+  <a href="#contact" class="floating-contact">Contact Us</a>
+
+  <!-- Header / nav -->
+  <header class="nav-dark">
+    <div class="nav-inner">
+      <div class="brand">Ocean of Houses</div>
+
+      <nav class="nav-links" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#listings">Listings</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="cta" href="#listings">Explore</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero-dark">
+
+      <div class="bg-slideshow" aria-hidden="true">
+        <div class="bg-img" style="background-image:url('./images/bg1.jpg')"></div>
+        <div class="bg-img" style="background-image:url('./images/bg2.jpg')"></div>
+        <div class="bg-img" style="background-image:url('./images/bg3.jpg')"></div>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1 class="hero-heading">New place<br>for premium living.</h1>
+          <p class="hero-sub">Handpicked luxury homes across India offering unmatched comfort, design and lifestyle experiences.</p>
+        </div>
+
+        <aside class="hero-right">
+          <div class="glass">
+            <h3>Search Luxury Properties</h3>
+            <form class="search-form" action="#" method="GET" novalidate>
+              <input name="location" type="text" placeholder="Location (city or area)" required>
+              <input name="budget" type="number" placeholder="Budget (₹ Crore)" min="0" step="0.1" required>
+              <select name="type" required>
+                <option value="">Property Type</option>
+                <option value="villa">Villa</option>
+                <option value="mansion">Mansion</option>
+                <option value="penthouse">Penthouse</option>
+              </select>
+              <button class="btn-primary" type="submit">Search Properties</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
   
 </body>
