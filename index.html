@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ocean of Houses — New place for premium living.</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating contact button -->
+  <a href="#contact" class="floating-contact">Contact Us</a>
+
+  <!-- nav -->
+  <header class="nav-dark">
+    <div class="nav-inner">
+      <div class="brand">Ocean of Houses</div>
+
+      <nav class="nav-links" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#listings">Listings</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="cta" href="#listings">Explore</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero-dark">
+
+      <div class="bg-slideshow" aria-hidden="true">
+        <div class="bg-img" style="background-image:url('./images/bg1.jpg')"></div>
+        <div class="bg-img" style="background-image:url('./images/bg2.jpg')"></div>
+        <div class="bg-img" style="background-image:url('./images/bg3.jpg')"></div>
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1 class="hero-heading">New place<br>for premium living.</h1>
+          <p class="hero-sub">Handpicked luxury homes across India offering unmatched comfort, design and lifestyle experiences.</p>
+        </div>
+
+        <aside class="hero-right">
+          <div class="glass">
+            <h3>Search Luxury Properties</h3>
+            <form class="search-form" action="#" method="GET" novalidate>
+              <input name="location" type="text" placeholder="Location (city or area)" required>
+              <input name="budget" type="number" placeholder="Budget (₹ Crore)" min="0" step="0.1" required>
+              <select name="type" required>
+                <option value="">Property Type</option>
+                <option value="villa">Villa</option>
+                <option value="mansion">Mansion</option>
+                <option value="penthouse">Penthouse</option>
+              </select>
+              <button class="btn-primary" type="submit">Search Properties</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+        <!-- LISTINGS -->
+    <section id="listings" class="section-dark">
+      <div class="section-inner">
+        <h2 class="section-title">Featured Listings</h2>
+
+        <div class="listing-grid">
+
+          <article class="listing-card">
+            <img src="./images/list1.jpg" alt="Cliffside Mansion">
+            <div class="listing-info">
+              <h3>Cliffside Mansion</h3>
+              <p class="meta">₹18 Cr • Kerala • 6 BHK</p>
+              <p class="desc">Panoramic sea views, infinity pool and landscaped terraces.</p>
+              <a class="link" href="#">View details →</a>
+            </div>
+          </article>
+
+          <article class="listing-card">
+            <img src="./images/list2.jpg" alt="Modern Glass Villa">
+            <div class="listing-info">
+              <h3>Modern Glass Villa</h3>
+              <p class="meta">₹12 Cr • Mumbai • 4 BHK</p>
+              <p class="desc">Minimalist spaces with floor-to-ceiling glass and sky deck.</p>
+              <a class="link" href="#">View details →</a>
+            </div>
+          </article>
+
+          <article class="listing-card">
+            <img src="./images/list3.jpg" alt="Beachfront Villa">
+            <div class="listing-info">
+              <h3>Beachfront Villa</h3>
+              <p class="meta">₹7.5 Cr • Goa • Beach Access</p>
+              <p class="desc">Direct beach access and ocean-facing balconies.</p>
+              <a class="link" href="#">View details →</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="view-more-box">
+          <a class="view-more-btn" href="listings.html">View More Listings →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+<section id="services" class="section-dark premium-split-services">
+  <div class="section-inner">
+
+    <h2 class="section-title">Our Premium Services</h2>
+    <p class="section-sub">Luxury-focused solutions tailored for elite buyers & investors</p>
+
+    <!-- Block 1 -->
+    <div class="split-service-block">
+      <div class="split-img" style="background-image:url('./images/list1.jpg')"></div>
+      <div class="split-text">
+        <h3>Exclusive Buying Assistance</h3>
+        <p>We curate only the finest properties with private tours, documentation support and senior advisors guiding you through every step.</p>
+        <a href="#" class="split-btn">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Block 2 (reverse) -->
+    <div class="split-service-block reverse">
+      <div class="split-img" style="background-image:url('./images/list2.jpg')"></div>
+      <div class="split-text">
+        <h3>Premium Rental & Leasing</h3>
+        <p>Access top-tier rentals, from luxury penthouses to beachfront estates. Tailored contracts, tenant screening and concierge onboarding.</p>
+        <a href="#" class="split-btn">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div class="split-service-block">
+      <div class="split-img" style="background-image:url('./images/list3.jpg')"></div>
+      <div class="split-text">
+        <h3>Commercial Luxury Spaces</h3>
+        <p>Handpicked commercial spaces for premium brands — including boutique studios, showrooms and flagship locations.</p>
+        <a href="#" class="split-btn">Learn More →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- WHY -->
+    <section class="section-dark">
+      <div class="section-inner two-cols">
+        <div>
+          <h2 class="section-title">Why Choose Ocean of Houses</h2>
+          <ul class="why-list">
+            <li>Only curated, ultra-premium properties</li>
+            <li>Discreet service and client privacy</li>
+            <li>Local experts across coastal & scenic destinations</li>
+            <li>White-glove after-sales service</li>
+          </ul>
+        </div>
+        <div>
+          <img class="why-image" src="./images/list1.jpg" alt="Why choose us">
+        </div>
+      </div>
+    </section>
+
+        <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section-dark">
+      <div class="section-inner">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-box">“Ocean of Houses made our purchase effortless and elegant.” <span>— Mr. Kapoor</span></div>
+          <div class="testimonial-box">“Private tour experience was beyond luxurious.” <span>— Priya S.</span></div>
+          <div class="testimonial-box">“Their curated properties are top-tier.” <span>— Raghav M.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="footer-dark">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <h3>Ocean of Houses</h3>
+          <p>India’s premium curated marketplace for luxury real estate.</p>
+        </div>
+        <div class="footer-right">
+          <p>Email: contact@oceanhouses.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
+
