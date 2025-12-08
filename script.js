@@ -14,3 +14,13 @@ links.forEach(link => {
     });
   });
 });
+
+  (function(){
+    var y = new Date().getFullYear();
+    var s1 = document.getElementById('footerYear');
+    var s2 = document.getElementById('footerYear2');
+    if(s1) s1.textContent = y;
+    if(s2) s2.textContent = y;
+  })();
+
+
