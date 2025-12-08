@@ -155,7 +155,7 @@
   </div>
 </section>
 
-<!-- ===== WHY CHOOSE SECTION —  ===== -->
+<!-- ===== WHY CHOOSE SECTION — optimized for performance ===== -->
 <section id="why-choose" class="section-magazine">
   <div class="why-inner">
 
@@ -169,25 +169,16 @@
     <div class="why-grid">
 
       <div class="why-left">
-        <!-- big image (link opens modal-prop2) -->
-        <a class="big-link" href="#" aria-label="Open Modern Glass Villa">
-          <figure class="big-figure">
-            <img src="./images/prop2.jpg" alt="Modern Glass Villa — curated for premium living." >
-            <figcaption class="big-caption">Modern Glass Villa — curated for premium living.</figcaption>
-          </figure>
-        </a>
-
-        <!-- thumbnails under the big image -->
-        <div class="thumbs-row" aria-label="Property previews">
-          <a class="thumb" href="#modal-prop1"><img src="./images/thumb1.jpg" alt="preview 1" ></a>
-          <a class="thumb" href="#modal-prop2"><img src="./images/thumb2.jpg" alt="preview 2" ></a>
-          <a class="thumb" href="#modal-prop3"><img src="./images/thumb3.jpg" alt="preview 3" ></a>
-          <a class="thumb" href="#modal-prop4"><img src="./images/thumb4.jpg" alt="preview 4" ></a>
-          <a class="thumb" href="#modal-prop5"><img src="./images/thumb5.jpg" alt="preview 5" ></a>
-          <a class="thumb" href="#modal-prop6"><img src="./images/thumb6.jpg" alt="preview 6" ></a>
-        </div>
+        <!-- big image (plain figure — not a link, no modal) -->
+        <figure class="big-figure">
+          <!-- explicit width/height to avoid layout shifts -->
+          <img src="./images/prop2.jpg" alt="Modern Glass Villa — curated for premium living."
+               width="1200" height="700" loading="lazy">
+          <figcaption class="big-caption">Modern Glass Villa — curated for premium living.</figcaption>
+        </figure>
+        <!-- thumbnails removed for performance -->
       </div>
- 
+
       <aside class="why-right">
         <div class="tags-ribbon tags-grid" aria-hidden="false">
           <span class="tag">🏡 Luxury</span>
@@ -203,7 +194,7 @@
             <h3>Private Viewings</h3>
             <p>One-on-one tours scheduled at your convenience. No crowds — just premium attention.</p>
           </div>
-          <a class="f-link" href="">Learn more →</a>
+          <span class="f-link">Learn more →</span>
         </div>
 
         <div class="feature-card">
@@ -212,7 +203,7 @@
             <h3>Off-market Access</h3>
             <p>Exclusive listings you won't find publicly — discreet and curated for serious buyers.</p>
           </div>
-          <a class="f-link" href="">Learn more →</a>
+          <span class="f-link">Learn more →</span>
         </div>
 
         <div class="feature-card">
@@ -221,7 +212,7 @@
             <h3>White-glove Service</h3>
             <p>From negotiation to handover, our concierge handles every detail with care and confidentiality.</p>
           </div>
-          <a class="f-link" href="">Learn more →</a>
+          <span class="f-link">Learn more →</span>
         </div>
       </aside>
 
@@ -229,22 +220,22 @@
 
     <blockquote class="why-quote">“Where luxury meets location — curated with intent.”</blockquote>
 
-    <!-- stats row -->
+    <!-- stats row (static numbers to avoid extra JS) -->
     <div class="why-stats" id="whyStats">
       <div class="stat-card">
-        <div class="stat-num" data-target="30">30</div>
+        <div class="stat-num">30</div>
         <div class="stat-label">Years Delivering Results</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="378">378</div>
+        <div class="stat-num">378</div>
         <div class="stat-label">Properties Sold</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="1075">1075</div>
+        <div class="stat-num">1075</div>
         <div class="stat-label">Properties Leased</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="34">34</div>
+        <div class="stat-num">34</div>
         <div class="stat-label">Trusted Partners</div>
       </div>
     </div>
