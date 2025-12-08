@@ -1047,3 +1047,56 @@ body{
 .big-cinematic-footer a { color: inherit; text-decoration: none; }
 .big-cinematic-footer a:hover { color: var(--accent); text-decoration: underline; }
 
+
+
+
+
+
+/* HERO: Letter-by-letter cinematic reveal */
+.hero-heading { 
+  display:inline-block;
+  line-height:0.95; 
+  overflow:visible;
+}
+
+.hero-heading .char {
+  display:inline-block;
+  opacity:0;
+  transform: translateY(18px);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+.hero-heading .char.space {
+  display:inline-block;
+  width:0.45ch; 
+}
+
+/* keyframes */
+@keyframes charFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* animation is applied via inline style (JS adds stagger delays) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading .char {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}
