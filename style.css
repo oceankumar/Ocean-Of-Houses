@@ -486,98 +486,230 @@ body{
   color:#c2c7ce;
 }
 
-/* ===== Testimonials  ===== */
+/* =========================
+   TESTIMONIALS SECTION — full CSS (drop-in)
+   Affects ONLY #testimonials and its children.
+   Performance-friendly: only transform & opacity animations.
+   ========================= */
 
-.testimonials-backed{ padding:64px 0; background:linear-gradient(180deg,#040506,#03141a 60%); }
-.testimonials-backed .section-inner{ max-width:var(--container); width:92%; margin:auto; }
-
-.testimonials-backed .section-title{ margin-bottom:6px; color:#fff; }
-
-.testimonials-wrap{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:22px;
-  align-items:stretch;
-  margin-top:18px;
+/* Ensure root variables are available; if not, adjust colors below */
+:root{
+  --muted: #9aa5b1;
+  --accent: #1ea7ff;
+  --bg: #040506;
 }
 
-.tb-card{
-  position:relative;
-  height:260px;                
-  border-radius:14px;
-  overflow:hidden;
-  isolation:isolate;
-  will-change: transform, opacity;
-  transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
-  display:flex;
-  align-items:flex-end;
+/* Section shell: local top blend to avoid a hard edge under nav */
+#testimonials {
+  position: relative;
+  background: var(--bg);
+  padding-top: 72px; /* space to breathe under nav */
+  padding-bottom: 56px;
+  overflow: visible;
 }
 
-.tb-card::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image: var(--bg);
-  background-size:cover;
-  background-position:center;
-  transform: scale(1.06); /* slight zoom */
-  filter: contrast(.9) saturate(.9) brightness(.55);
-  opacity:1;
-  will-change: transform, opacity;
-  transition: transform 0.9s linear;
+/* soft top fade just for this section (cheap gradient) */
+#testimonials::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -56px;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(4,8,12,0.92),
+    rgba(4,8,12,0.6),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-.tb-card::after{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(2,6,10,0.35), rgba(2,6,10,0.55));
-  mix-blend-mode: multiply;
-  pointer-events:none;
+/* ensure section-inner sits above the fade */
+#testimonials .section-inner {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
 }
 
-.tb-content{
-  position:relative;
-  z-index:2;
-  padding:20px;
-  margin:18px;
-  border-radius:10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border:1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  color:var(--muted);
-  backdrop-filter: none; 
+/* Optional header layout (title left, subtitle right).
+   If you didn't change HTML, these rules will also style default heading nicely. */
+.testimonials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  margin-bottom: 18px;
 }
-
-.tb-content blockquote{
-  margin:0 0 10px 0;
-  color:#f6fbff;
+.testimonials-header .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #ffffff;
+  margin: 0;
+}
+.testimonials-header .section-sub-right {
+  color: var(--muted);
   font-family: Poppins, sans-serif;
-  font-size:15px;
-  line-height:1.45;
+  font-size: 15px;
+  max-width: 520px;
+  text-align: right;
 }
 
-.tb-meta{ display:flex; gap:10px; align-items:center; font-size:13px; color:var(--muted); }
-.tb-name{ color:#eaf3ff; font-weight:700; margin-right:8px; }
-.tb-note{ color:var(--muted); opacity:.9; }
-
-.tb-card:hover{
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 26px 70px rgba(0,0,0,0.6);
+/* fallback styling if header wasn't modified */
+#testimonials .section-title {
+  font-size: 32px;
+  margin: 0 0 6px 0;
+  color: #fff;
 }
-.tb-card:hover::before{ transform: scale(1.12); filter: contrast(1) saturate(1); }
-
-.testimonial-compact{ margin-top:18px; color:var(--muted); font-size:14px; }
-.link-inline{ color:var(--accent); text-decoration:none; font-weight:700; }
-
-
-@media (prefers-reduced-motion: reduce){
-  .tb-card, .tb-card::before { transition: none !important; animation: none !important; transform: none !important; }
+#testimonials .section-sub {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 14px;
 }
 
-@media (max-width:900px){
-  .tb-card{ height:220px; }
-  .testimonials-wrap{ gap:14px; }
-  .tb-content{ padding:16px; margin:14px; }
+/* Testimonials grid */
+.testimonials-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
 }
+
+/* Card shell (glass look over muted bg).
+   Keep transitions to transform only for smoothness. */
+.tb-card {
+  position: relative;
+  height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45); /* static shadow, don't animate */
+  background: linear-gradient(180deg, rgba(6,12,16,0.56), rgba(3,6,10,0.42));
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* Background image (via inline --bg variable on each card).
+   Keep static filters only; no hover-scale or heavy filter transitions. */
+.tb-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.86;
+  filter: brightness(.70) saturate(.95) contrast(.95); /* static */
+  transform: translateZ(0);
+  z-index: 0;
+}
+
+/* Subtle colored vignette for mood (cheap, static) */
+.tb-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 22%, rgba(30,167,255,0.06), transparent 26%),
+    radial-gradient(circle at 92% 78%, rgba(0,0,0,0.12), transparent 40%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card content (glass panel) */
+.tb-content {
+  position: relative;
+  z-index: 2;
+  margin: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.04);
+  color: #eaf3ff;
+  box-shadow: 0 8px 22px rgba(2,6,12,0.45);
+  font-family: Poppins, sans-serif;
+}
+
+/* Quote text and meta */
+.tb-content blockquote {
+  margin: 0 0 8px 0;
+  color: #f3fbff;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.tb-meta {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Hover effect: ONLY translate the card (GPU-friendly) */
+.tb-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Compact "more" line and link color fix (no purple) */
+.testimonial-compact {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.testimonial-compact a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(30,167,255,0.09);
+  padding-bottom: 2px;
+}
+
+/* Stats row inside testimonials (if present) */
+.why-stats {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.why-stats .stat-card {
+  padding: 12px 16px;
+  border-radius: 12px;
+  min-width: 140px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
+}
+.stat-label { color: var(--muted); margin-top: 6px; font-size: 13px; }
+
+/* Accessibility / reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #testimonials * { transition: none !important; animation: none !important; transform: none !important; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .testimonials-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .testimonials-header .section-sub-right { text-align: left; }
+  .tb-card { height: 220px; }
+  .testimonials-wrap { gap: 14px; }
+  #testimonials { padding-top: 44px; padding-bottom: 36px; }
+}
+
 
 
 /* FOOTER */
