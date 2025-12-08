@@ -748,14 +748,6 @@ body{
 .stat-num{ font-family:'Playfair Display', serif; font-size:36px; color:#fff; font-weight:800; }
 .stat-label{ color:var(--muted); margin-top:8px; font-size:13px; }
 
-.mag-modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.78); z-index:120; opacity:0; pointer-events:none; transition:opacity .16s ease; }
-.mag-modal:target{ opacity:1; pointer-events:auto; }
-.modal-box{ width:94%; max-width:1000px; background:linear-gradient(180deg,#04131b,#031018); border-radius:12px; padding:18px; display:flex; gap:18px; box-shadow:0 40px 120px rgba(0,0,0,0.75); position:relative; }
-.modal-left img{ width:100%; max-width:560px; height:360px; object-fit:cover; border-radius:8px; }
-.modal-right{ color:var(--muted); max-width:48%; }
-.modal-right h3{ color:#fff; margin-top:0; }
-.modal-close{ position:absolute; right:16px; top:12px; color:#fff; text-decoration:none; font-size:20px; }
-
 /* small screens */
 @media (max-width:1000px){
   .why-grid{ display:block; }
@@ -776,22 +768,5 @@ body{
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin-bottom: 18px;
-}
-
-.mag-modal {
-  position: fixed;
-  inset: 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(0,0,0,0.78);
-  z-index: 120;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .16s ease;
-}
-.mag-modal:target {
-  opacity: 1;
-  pointer-events: auto;
 }
 
